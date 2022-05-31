@@ -15,6 +15,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -66,7 +67,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../building_the_docs.html">Building the Docs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Functions</span></p>
 <ul>
@@ -144,9 +144,9 @@
            <div itemprop="articleBody">
              
   <section id="adding-functions">
-<h1>Adding Functions<a class="headerlink" href="#adding-functions" title="Permalink to this headline"></a></h1>
+<h1>Adding Functions<a class="headerlink" href="#adding-functions" title="Permalink to this heading"></a></h1>
 <section id="categorization">
-<h2>Categorization<a class="headerlink" href="#categorization" title="Permalink to this headline"></a></h2>
+<h2>Categorization<a class="headerlink" href="#categorization" title="Permalink to this heading"></a></h2>
 <p>The first thing to decide when adding a function is which file this should be added to!</p>
 <p>Ivy uses the following categories taken from the <a class="reference external" href="https://data-apis.org/array-api/latest/">Array API Standard</a>:</p>
 <ul class="simple">
@@ -184,7 +184,7 @@ and use your best judgement for which categorization is most suitable.</p>
 <p>We can always suggest a more suitable location when reviewing your pull request if needed 🙂</p>
 </section>
 <section id="primary-functions">
-<h2>Primary Functions<a class="headerlink" href="#primary-functions" title="Permalink to this headline"></a></h2>
+<h2>Primary Functions<a class="headerlink" href="#primary-functions" title="Permalink to this heading"></a></h2>
 <p><em>Primary</em> functions are essentially the lowest level building blocks in Ivy. Each primary function has a unique
 framework-specific implementation for each backend specified in
 <code class="code docutils literal notranslate"><span class="pre">ivy/functional/backends/backend_name/category_name.py</span></code>. These are generally implemented as light wrapping
@@ -213,7 +213,7 @@ implementation.</p>
 </div>
 </section>
 <section id="compositional-functions">
-<h2>Compositional Functions<a class="headerlink" href="#compositional-functions" title="Permalink to this headline"></a></h2>
+<h2>Compositional Functions<a class="headerlink" href="#compositional-functions" title="Permalink to this heading"></a></h2>
 <p><em>Compositional</em> functions on the other hand <strong>do not</strong> have framework-specific implementations. They are implemented as
 a <em>composition</em> of other Ivy methods, which themselves can be either compositional or primary.</p>
 <p>Therefore, compositional functions are only implemented in <code class="code docutils literal notranslate"><span class="pre">ivy/functional/ivy/category_name.py</span></code>, and there are no
@@ -235,7 +235,7 @@ implementations in any of the backend files <code class="code docutils literal n
 </div>
 </section>
 <section id="partial-primary-functions">
-<h2>Partial Primary Functions<a class="headerlink" href="#partial-primary-functions" title="Permalink to this headline"></a></h2>
+<h2>Partial Primary Functions<a class="headerlink" href="#partial-primary-functions" title="Permalink to this heading"></a></h2>
 <p><em>Partial primary</em> functions have some framework-specific implementations in
 <code class="code docutils literal notranslate"><span class="pre">ivy/functional/backends/backend_name/category_name.py</span></code>, but not for all backends.
 To support backends that do not have a framework-specific implementation,
@@ -252,7 +252,7 @@ Typically the framework should always be set explicitly (using <code class="code
 and in this case the efficient framework-specific implementation will always be used if it exists.</p>
 </section>
 <section id="flexible-functions">
-<h2>Flexible Functions<a class="headerlink" href="#flexible-functions" title="Permalink to this headline"></a></h2>
+<h2>Flexible Functions<a class="headerlink" href="#flexible-functions" title="Permalink to this heading"></a></h2>
 <p><em>Flexible</em> functions are functions (compositional or primary) which can receive either arrays or containers in the
 input, as well as arbitrary combinations.
 More specifically, array arguments for <em>flexible</em> functions have the type hint
@@ -309,7 +309,7 @@ the arguments which are not supported in the source code implementation.</p>
 adding any instance methods which have not yet been added in source code, or were just forgotten.</p>
 </section>
 <section id="inplace-updates">
-<h2>Inplace Updates<a class="headerlink" href="#inplace-updates" title="Permalink to this headline"></a></h2>
+<h2>Inplace Updates<a class="headerlink" href="#inplace-updates" title="Permalink to this heading"></a></h2>
 <p>All Ivy functions which return a single array should support inplace updates, with the inclusion of a keyword-only
 <code class="code docutils literal notranslate"><span class="pre">out</span></code> argument, with type hint <code class="code docutils literal notranslate"><span class="pre">Optional[Union[ivy.Array,</span> <span class="pre">ivy.Container]]</span></code> for <em>flexible</em> functions
 and <code class="code docutils literal notranslate"><span class="pre">Optional[ivy.Array]</span></code> otherwise.</p>
@@ -366,7 +366,7 @@ which is how <code class="code docutils literal notranslate"><span class="pre">o
 the container wrapping module.</p>
 </section>
 <section id="data-types">
-<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline"></a></h2>
+<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this heading"></a></h2>
 <p>All <code class="code docutils literal notranslate"><span class="pre">dtype</span></code> arguments are keyword-only.
 All creation functions include the <code class="code docutils literal notranslate"><span class="pre">dtype</span></code> argument, for specifying the data type of the created array.
 Some other non-creation functions also support the <code class="code docutils literal notranslate"><span class="pre">dtype</span></code> argument,
@@ -490,7 +490,7 @@ where the <code class="code docutils literal notranslate"><span class="pre">dtyp
 framework-specific implementation.</p>
 </section>
 <section id="devices">
-<h2>Devices<a class="headerlink" href="#devices" title="Permalink to this headline"></a></h2>
+<h2>Devices<a class="headerlink" href="#devices" title="Permalink to this heading"></a></h2>
 <p>Like with <code class="code docutils literal notranslate"><span class="pre">dtype</span></code>, all <code class="code docutils literal notranslate"><span class="pre">device</span></code> arguments are also keyword-only.
 All creation functions include the <code class="code docutils literal notranslate"><span class="pre">device</span></code> argument,
 for specifying the device on which to place the created array.
