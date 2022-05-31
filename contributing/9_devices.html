@@ -15,6 +15,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -45,7 +46,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../contributing.html">Contributing</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="0_setting_up.html">Setting up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0_setting_up.html">Setting Up</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_the_basics.html">The Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_navigating_the_code.html">Navigating the Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_function_types.html">Function Types</a></li>
@@ -54,17 +55,21 @@
 <li class="toctree-l2"><a class="reference internal" href="6_arrays.html">Arrays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="7_containers.html">Containers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="8_data_types.html">Data Types</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Devices</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Devices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#device-module">Device Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arguments-in-other-functions">Arguments in other Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="10_inplace_updates.html">Inplace Updates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_type_hints.html">Type Hints</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12_docstrings.html">Docstrings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="13_docstring_examples.html">Docstring Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="14_array_api_tests.html">Array API Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="15_ivy_tests.html">Ivy Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_the_docs.html">Building the Docs</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../building_the_docs.html">Building the Docs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Functions</span></p>
 <ul>
@@ -142,7 +147,40 @@
            <div itemprop="articleBody">
              
   <section id="devices">
-<h1>Devices<a class="headerlink" href="#devices" title="Permalink to this headline"></a></h1>
+<h1>Devices<a class="headerlink" href="#devices" title="Permalink to this heading"></a></h1>
+<p>The devices currently supported by Ivy are as follows:</p>
+<ul class="simple">
+<li><p>cpu</p></li>
+<li><p>gpu:idx</p></li>
+<li><p>tpu:idx</p></li>
+</ul>
+<p>In a similar manner to the <code class="code docutils literal notranslate"><span class="pre">ivy.Dtype</span></code> and <code class="code docutils literal notranslate"><span class="pre">ivy.NativeDtype</span></code> classes (see <a class="reference internal" href="8_data_types.html#data-types"><span class="std std-ref">Data Types</span></a>),
+there is both an <a class="reference external" href="https://github.com/unifyai/ivy/blob/0b89c7fa050db13ef52b0d2a3e1a5fb801a19fa2/ivy/__init__.py#L42">ivy.Device</a> class and an <code class="code docutils literal notranslate"><span class="pre">ivy.NativeDevice</span></code> class,
+with <code class="code docutils literal notranslate"><span class="pre">ivy.NativeDevice</span></code> initially set as an <a class="reference external" href="https://github.com/unifyai/ivy/blob/0b89c7fa050db13ef52b0d2a3e1a5fb801a19fa2/ivy/__init__.py#L34">empty class</a>.
+The <code class="code docutils literal notranslate"><span class="pre">ivy.Device</span></code> class derives from <code class="code docutils literal notranslate"><span class="pre">str</span></code>,
+and has simple logic in the constructor to verify that the string formatting is correct.
+When a backend is set, the <code class="code docutils literal notranslate"><span class="pre">ivy.NativeDtype</span></code> is replaced with the backend-specific <a class="reference external" href="https://github.com/unifyai/ivy/blob/0b89c7fa050db13ef52b0d2a3e1a5fb801a19fa2/ivy/functional/backends/torch/__init__.py#L13">device class</a>.</p>
+<section id="device-module">
+<h2>Device Module<a class="headerlink" href="#device-module" title="Permalink to this heading"></a></h2>
+<p>The <a class="reference external" href="https://github.com/unifyai/ivy/blob/0b89c7fa050db13ef52b0d2a3e1a5fb801a19fa2/ivy/functional/ivy/device.py">device.py</a> module provides a variety of functions for working with devices.
+A few examples include
+<code class="code docutils literal notranslate"><span class="pre">ivy.get_all_arrays_on_dev</span></code> which gets all arrays which are currently alive on the specified device,
+<code class="code docutils literal notranslate"><span class="pre">ivy.dev</span></code> which gets the device for input array,
+and <code class="code docutils literal notranslate"><span class="pre">ivy.num_gpus</span></code> which determines the number of available GPUs for use with the backend framework.</p>
+<p>Many functions are <em>convenience</em> functions, which means that they do not directly modify arrays,
+as explained in the <a class="reference internal" href="3_function_types.html#function-types"><span class="std std-ref">Function Types</span></a> section.</p>
+<p>For example,
+<a class="reference external" href="https://github.com/unifyai/ivy/blob/0b89c7fa050db13ef52b0d2a3e1a5fb801a19fa2/ivy/functional/ivy/device.py#L215">ivy.total_mem_on_dev</a> which gets the total amount of memory for a given device,
+<a class="reference external" href="https://github.com/unifyai/ivy/blob/0b89c7fa050db13ef52b0d2a3e1a5fb801a19fa2/ivy/functional/ivy/device.py#L326">ivy.dev_util</a> which gets the current utilization (%) for a given device,
+<a class="reference external" href="https://github.com/unifyai/ivy/blob/0b89c7fa050db13ef52b0d2a3e1a5fb801a19fa2/ivy/functional/ivy/device.py#L371">ivy.num_cpu_cores</a> which determines the number of cores available in the CPU,
+and <a class="reference external" href="https://github.com/unifyai/ivy/blob/0b89c7fa050db13ef52b0d2a3e1a5fb801a19fa2/ivy/functional/ivy/device.py#L424">ivy.default_device</a> which returns the correct device to use,
+are all convenience functions.</p>
+<p><a class="reference external" href="https://github.com/unifyai/ivy/blob/0b89c7fa050db13ef52b0d2a3e1a5fb801a19fa2/ivy/functional/ivy/device.py#L424">ivy.default_device</a> is arguably the most important function.
+Any function in the functional API that receives a <code class="code docutils literal notranslate"><span class="pre">device</span></code> argument will make use of this function,
+as explained below.</p>
+</section>
+<section id="arguments-in-other-functions">
+<h2>Arguments in other Functions<a class="headerlink" href="#arguments-in-other-functions" title="Permalink to this heading"></a></h2>
 <p>Like with <code class="code docutils literal notranslate"><span class="pre">dtype</span></code>, all <code class="code docutils literal notranslate"><span class="pre">device</span></code> arguments are also keyword-only.
 All creation functions include the <code class="code docutils literal notranslate"><span class="pre">device</span></code> argument,
 for specifying the device on which to place the created array.
@@ -236,6 +274,7 @@ has been determined.</p>
 are <strong>not</strong> handled by <a class="reference external" href="https://github.com/unifyai/ivy/blob/fdaea62380c9892e679eba37f26c14a7333013fe/ivy/func_wrapper.py#L242">_function_w_arrays_dtype_n_dev_handled</a>,
 and so these defaults must be handled by the backend-specific implementations themselves,
 by calling <code class="code docutils literal notranslate"><span class="pre">ivy.default_device</span></code> internally.</p>
+</section>
 </section>
 
 
