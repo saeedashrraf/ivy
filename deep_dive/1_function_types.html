@@ -153,7 +153,7 @@
 <h1>Function Types<a class="headerlink" href="#function-types" title="Permalink to this heading"></a></h1>
 <p>Firstly, we explain the difference between <em>primary</em>, <em>compositional</em>, <em>mixed</em> and <em>standalone</em> functions.
 These four function categorizations are all <strong>mutually exclusive</strong>,
-and combined they consitute the set of <strong>all</strong> functions in Ivy, as outlined in the simple Venn diagram below.</p>
+and combined they constitute the set of <strong>all</strong> functions in Ivy, as outlined in the simple Venn diagram below.</p>
 <a class="reference internal image-reference" href="https://github.com/unifyai/unifyai.github.io/blob/master/img/externally_linked/four_function_types.png?raw=true"><img alt="https://github.com/unifyai/unifyai.github.io/blob/master/img/externally_linked/four_function_types.png?raw=true" class="align-center" src="https://github.com/unifyai/unifyai.github.io/blob/master/img/externally_linked/four_function_types.png?raw=true" style="width: 50%;" /></a>
 <section id="primary-functions">
 <h2>Primary Functions<a class="headerlink" href="#primary-functions" title="Permalink to this heading"></a></h2>
@@ -174,7 +174,7 @@ implementation.</p>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">current_backend</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">current_backend</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The backend-specific implementation of <code class="code docutils literal notranslate"><span class="pre">ivy.tan</span></code>  for PyTorch in
@@ -222,8 +222,8 @@ implementations in any of the backend files <code class="code docutils literal n
 To support backends that do not have a backend-specific implementation,
 a compositional implementation is also provided in <code class="code docutils literal notranslate"><span class="pre">ivy/functional/ivy/category_name.py</span></code>.
 Because these functions include both a compositional implementation and also at least one backend-specific
-implementation, these functions are refered to as <em>mixed</em>.</p>
-<p>When using ivy without a backend set explicitly (for example <code class="code docutils literal notranslate"><span class="pre">ivy.set_framework()</span></code> has not been called),
+implementation, these functions are referred to as <em>mixed</em>.</p>
+<p>When using ivy without a backend set explicitly (for example <code class="code docutils literal notranslate"><span class="pre">ivy.set_backend()</span></code> has not been called),
 then the function called is always the one implemented in <code class="code docutils literal notranslate"><span class="pre">ivy/functional/ivy/category_name.py</span></code>.
 For <em>primary</em> functions, then <code class="code docutils literal notranslate"><span class="pre">ivy.current_backend(array_arg).func_name(...)</span></code>
 will call the backend-specific implementation in <code class="code docutils literal notranslate"><span class="pre">ivy/functional/backends/backend_name/category_name.py</span></code>
@@ -232,14 +232,14 @@ directly. However, as just explained, <em>mixed</em> functions implement a compo
 Therefore, when no backend is explicitly set,
 then the compositional implementation is always used for <em>mixed</em> functions,
 even for backends that have a more efficient backend-specific implementation.
-Typically the backend should always be set explicitly though (using <code class="code docutils literal notranslate"><span class="pre">ivy.set_framework()</span></code> for example),
+Typically the backend should always be set explicitly though (using <code class="code docutils literal notranslate"><span class="pre">ivy.set_backend()</span></code> for example),
 and in this case the efficient backend-specific implementation will always be used if it exists.</p>
 </section>
 <section id="standalone-functions">
 <h2>Standalone Functions<a class="headerlink" href="#standalone-functions" title="Permalink to this heading"></a></h2>
 <p><em>Standalone</em> functions are functions which do not reference any other <em>primary</em>,
 <em>compositional</em> or <em>mixed</em> functions whatsoever.</p>
-<p>By definition, standalone functions can only reference themselves or other standlone functions.
+<p>By definition, standalone functions can only reference themselves or other standalone functions.
 Most commonly, these functions are <em>convenience</em> functions (see below).</p>
 <p>As a first example, every function in the <a class="reference external" href="https://github.com/unifyai/ivy/blob/f18df2e19d6a5a56463fa1a15760c555a30cb2b2/ivy/functional/ivy/nest.py">nest.py</a> module is a standalone function.
 All of these either: (a) reference no other function at all, (b) only reference themselves recursively,
@@ -254,7 +254,7 @@ and <a class="reference external" href="https://github.com/unifyai/ivy/blob/f18d
 <h2>Nestable Functions<a class="headerlink" href="#nestable-functions" title="Permalink to this heading"></a></h2>
 <p><em>Nestable</em> functions are functions which can accept <code class="code docutils literal notranslate"><span class="pre">ivy.Container</span></code> instances in place
 of <strong>any</strong> of the arguments. Multiple containers can also be passed in for multiple arguments at the same time,
-provided that the containers share the same nested structure.
+provided that the containers share a common nested structure.
 If an <code class="code docutils literal notranslate"><span class="pre">ivy.Container</span></code> is passed, then the function is applied to all of the
 leaves of the container, with the container leaf values passed into the function at the corresponding arguments.
 In this case, the function will return an <code class="code docutils literal notranslate"><span class="pre">ivy.Container</span></code> in the output.
@@ -273,6 +273,76 @@ in the <code class="code docutils literal notranslate"><span class="pre">ivy</sp
 This function wrapping process is covered in a bit more detail in the <a class="reference internal" href="3_function_wrapping.html#function-wrapping"><span class="std std-ref">Function Wrapping</span></a> section.</p>
 <p>Under the hood, the <code class="code docutils literal notranslate"><span class="pre">ivy.Container</span></code> API static methods are called when <code class="code docutils literal notranslate"><span class="pre">ivy.Container</span></code> instances are passed
 in as inputs to functions in the functional API. This is explained in more detail in the <a class="reference internal" href="5_containers.html#containers"><span class="std std-ref">Containers</span></a> section.</p>
+<p><strong>Shared Nested Structure</strong></p>
+<p>When the nested structures of the multiple containers are <em>shared</em> but not <em>identical</em>,
+then the behaviour of the nestable function is a bit different.
+Containers have <em>shared</em> nested structures if all unique leaves in any of the containers
+are children of a nested structure which is shared by all other containers.</p>
+<p>Take the example below, the nested structures of containers <code class="code docutils literal notranslate"><span class="pre">x</span></code> and <code class="code docutils literal notranslate"><span class="pre">y</span></code>
+are shared but not identical.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span> <span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">})</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The shared key chains (chains of keys, used for indexing the container)
+are <code class="code docutils literal notranslate"><span class="pre">a</span></code> and <code class="code docutils literal notranslate"><span class="pre">d</span></code>. The key chains unique to <code class="code docutils literal notranslate"><span class="pre">x</span></code> are <code class="code docutils literal notranslate"><span class="pre">a/b</span></code>, <code class="code docutils literal notranslate"><span class="pre">a/c</span></code>,
+<code class="code docutils literal notranslate"><span class="pre">d/e</span></code> and <code class="code docutils literal notranslate"><span class="pre">d/f</span></code>. The unique key chains all share the same base structure as
+all other containers (in this case only one other container, <code class="code docutils literal notranslate"><span class="pre">y</span></code>).
+Therefore, the containers <code class="code docutils literal notranslate"><span class="pre">x</span></code> and <code class="code docutils literal notranslate"><span class="pre">y</span></code> have shared nested structure.</p>
+<p>When calling <em>nestable</em> functions on containers with non-identical structure,
+then the shared leaves of the shallowest container are broadcast to the leaves of the
+deepest container.</p>
+<p>It’s helpful to look at an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">a</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">b</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="n">c</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+    <span class="n">d</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">e</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="n">f</span><span class="p">:</span> <span class="mf">2.67</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this case, the integer at <code class="code docutils literal notranslate"><span class="pre">y.a</span></code> is broadcast to the leaves <code class="code docutils literal notranslate"><span class="pre">x.a.b</span></code> and
+<code class="code docutils literal notranslate"><span class="pre">x.a.c</span></code>, and the integer at <code class="code docutils literal notranslate"><span class="pre">y.d</span></code> is broadcast to the leaves <code class="code docutils literal notranslate"><span class="pre">x.d.e</span></code>
+and <code class="code docutils literal notranslate"><span class="pre">x.d.f</span></code>.</p>
+<p>Another example of containers with shared nested structure is given below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span> <span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">})</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">}},</span> <span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Adding these containers together would result in the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">a</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">b</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+      <span class="n">c</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">g</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+        <span class="n">h</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">d</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">e</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+      <span class="n">f</span><span class="p">:</span> <span class="mi">25</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>An example of containers which <strong>do not</strong> have shared nested structure is given below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span> <span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">})</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">}},</span> <span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>This is for three reasons, (a) the key chain <code class="code docutils literal notranslate"><span class="pre">g</span></code> is not shared by any container other
+than <code class="code docutils literal notranslate"><span class="pre">y</span></code>, (b) the key chain <code class="code docutils literal notranslate"><span class="pre">d/f</span></code> for <code class="code docutils literal notranslate"><span class="pre">x</span></code> is not present in
+<code class="code docutils literal notranslate"><span class="pre">z</span></code> despite <code class="code docutils literal notranslate"><span class="pre">d</span></code> not being a non-leaf node in <code class="code docutils literal notranslate"><span class="pre">z</span></code>,
+and likewise the key chain <code class="code docutils literal notranslate"><span class="pre">d/g</span></code> for <code class="code docutils literal notranslate"><span class="pre">z</span></code> is not present in <code class="code docutils literal notranslate"><span class="pre">x</span></code>
+despite <code class="code docutils literal notranslate"><span class="pre">d</span></code> not being a non-leaf node in <code class="code docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </section>
 <section id="convenience-functions">
 <h2>Convenience Functions<a class="headerlink" href="#convenience-functions" title="Permalink to this heading"></a></h2>
