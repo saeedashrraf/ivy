@@ -30,6 +30,6 @@ eigh
    :maxdepth: -1
    :caption: eigh
 
-   eigh/eigh_array.rst
    eigh/eigh_functional.rst
+   eigh/eigh_array.rst
 

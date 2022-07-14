@@ -32,7 +32,7 @@ zero_pad
    :maxdepth: -1
    :caption: zero_pad
 
-   zero_pad/zero_pad_container.rst
-   zero_pad/zero_pad_array.rst
    zero_pad/zero_pad_functional.rst
+   zero_pad/zero_pad_array.rst
+   zero_pad/zero_pad_container.rst
 

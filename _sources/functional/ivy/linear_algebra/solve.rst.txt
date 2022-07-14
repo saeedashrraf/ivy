@@ -30,6 +30,6 @@ solve
    :maxdepth: -1
    :caption: solve
 
-   solve/solve_array.rst
    solve/solve_functional.rst
+   solve/solve_array.rst
 

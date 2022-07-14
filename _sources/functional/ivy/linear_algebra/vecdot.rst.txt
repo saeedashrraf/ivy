@@ -30,6 +30,6 @@ vecdot
    :maxdepth: -1
    :caption: vecdot
 
-   vecdot/vecdot_array.rst
    vecdot/vecdot_functional.rst
+   vecdot/vecdot_array.rst
 

@@ -32,7 +32,7 @@ not_equal
    :maxdepth: -1
    :caption: not_equal
 
+   not_equal/not_equal_functional.rst
    not_equal/not_equal_array.rst
    not_equal/not_equal_container.rst
-   not_equal/not_equal_functional.rst
 

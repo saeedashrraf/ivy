@@ -32,7 +32,7 @@ squeeze
    :maxdepth: -1
    :caption: squeeze
 
+   squeeze/squeeze_functional.rst
    squeeze/squeeze_array.rst
    squeeze/squeeze_container.rst
-   squeeze/squeeze_functional.rst
 

@@ -34,8 +34,8 @@ multiply
    :maxdepth: -1
    :caption: multiply
 
-   multiply/multiply_container.rst
-   multiply/multiply_array.rst
    multiply/multiply_functional.rst
+   multiply/multiply_array.rst
+   multiply/multiply_container.rst
    multiply/static_multiply_container.rst
 

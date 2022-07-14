@@ -3,9 +3,9 @@ lamb_update
 
 .. autofunction:: ivy.functional.ivy.gradients.lamb_update
 
-.. autofunction:: ivy.container.container_methods.lamb_update
-
 .. autofunction:: ivy.container.container_methods.static_lamb_update
+
+.. autofunction:: ivy.container.container_methods.lamb_update
 |
 | **Supported Frameworks:**
 
@@ -32,7 +32,7 @@ lamb_update
    :maxdepth: -1
    :caption: lamb_update
 
-   lamb_update/static_lamb_update_container.rst
-   lamb_update/lamb_update_container.rst
    lamb_update/lamb_update_functional.rst
+   lamb_update/lamb_update_container.rst
+   lamb_update/static_lamb_update_container.rst
 

@@ -1,8 +1,6 @@
-atanh functional
-================
-.. autofunction:: ivy.functional.ivy.elementwise.atanh
-
-.. autofunction:: ivy.container.container_methods.atanh
+ivy.tan
+=======
+.. autofunction:: ivy.functional.ivy.elementwise.tan
 |
 | **Supported Frameworks:**
 

@@ -3,8 +3,6 @@ pinv
 
 .. autofunction:: ivy.functional.ivy.linear_algebra.pinv
 
-.. autofunction:: ivy.array.array_methods.inv
-
 .. autofunction:: ivy.array.array_methods.pinv
 |
 | **Supported Frameworks:**
@@ -32,6 +30,6 @@ pinv
    :maxdepth: -1
    :caption: pinv
 
-   pinv/pinv_array.rst
    pinv/pinv_functional.rst
+   pinv/pinv_array.rst
 

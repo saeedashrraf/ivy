@@ -32,7 +32,7 @@ isinf
    :maxdepth: -1
    :caption: isinf
 
-   isinf/isinf_container.rst
-   isinf/isinf_array.rst
    isinf/isinf_functional.rst
+   isinf/isinf_array.rst
+   isinf/isinf_container.rst
 

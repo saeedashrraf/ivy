@@ -32,7 +32,7 @@ flip
    :maxdepth: -1
    :caption: flip
 
+   flip/flip_functional.rst
    flip/flip_array.rst
    flip/flip_container.rst
-   flip/flip_functional.rst
 

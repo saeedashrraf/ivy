@@ -30,6 +30,6 @@ eigvalsh
    :maxdepth: -1
    :caption: eigvalsh
 
-   eigvalsh/eigvalsh_array.rst
    eigvalsh/eigvalsh_functional.rst
+   eigvalsh/eigvalsh_array.rst
 

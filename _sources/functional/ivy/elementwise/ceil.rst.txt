@@ -32,7 +32,7 @@ ceil
    :maxdepth: -1
    :caption: ceil
 
+   ceil/ceil_functional.rst
    ceil/ceil_array.rst
    ceil/ceil_container.rst
-   ceil/ceil_functional.rst
 

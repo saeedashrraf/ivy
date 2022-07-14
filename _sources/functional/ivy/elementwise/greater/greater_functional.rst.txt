@@ -1,8 +1,6 @@
-greater_equal functional
-========================
-.. autofunction:: ivy.functional.ivy.elementwise.greater_equal
-
-.. autofunction:: ivy.container.container_methods.greater_equal
+ivy.greater
+===========
+.. autofunction:: ivy.functional.ivy.elementwise.greater
 |
 | **Supported Frameworks:**
 

@@ -30,6 +30,6 @@ outer
    :maxdepth: -1
    :caption: outer
 
-   outer/outer_array.rst
    outer/outer_functional.rst
+   outer/outer_array.rst
 

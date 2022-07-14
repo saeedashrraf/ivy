@@ -30,6 +30,6 @@ vector_to_skew_symmetric_matrix
    :maxdepth: -1
    :caption: vector_to_skew_symmetric_matrix
 
-   vector_to_skew_symmetric_matrix/vector_to_skew_symmetric_matrix_array.rst
    vector_to_skew_symmetric_matrix/vector_to_skew_symmetric_matrix_functional.rst
+   vector_to_skew_symmetric_matrix/vector_to_skew_symmetric_matrix_array.rst
 

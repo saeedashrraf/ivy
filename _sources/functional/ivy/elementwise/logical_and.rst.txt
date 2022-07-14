@@ -32,7 +32,7 @@ logical_and
    :maxdepth: -1
    :caption: logical_and
 
+   logical_and/logical_and_functional.rst
    logical_and/logical_and_array.rst
    logical_and/logical_and_container.rst
-   logical_and/logical_and_functional.rst
 

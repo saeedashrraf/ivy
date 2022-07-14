@@ -32,7 +32,7 @@ var
    :maxdepth: -1
    :caption: var
 
+   var/var_functional.rst
    var/var_array.rst
    var/var_container.rst
-   var/var_functional.rst
 

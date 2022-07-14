@@ -30,6 +30,6 @@ vector_norm
    :maxdepth: -1
    :caption: vector_norm
 
-   vector_norm/vector_norm_array.rst
    vector_norm/vector_norm_functional.rst
+   vector_norm/vector_norm_array.rst
 

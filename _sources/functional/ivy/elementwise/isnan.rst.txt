@@ -32,7 +32,7 @@ isnan
    :maxdepth: -1
    :caption: isnan
 
+   isnan/isnan_functional.rst
    isnan/isnan_array.rst
    isnan/isnan_container.rst
-   isnan/isnan_functional.rst
 
