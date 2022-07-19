@@ -80,13 +80,13 @@
 <p class="caption" role="heading"><span class="caption-text">Framework Classes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="stateful/converters.html">Converters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stateful/activations.html">Activations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stateful/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stateful/optimizers.html">Optimizers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stateful/sequential.html">Sequential</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stateful/norms.html">Norms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stateful/initializers.html">Initializers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stateful/layers.html">Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stateful/norms.html">Norms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stateful/optimizers.html">Optimizers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stateful/module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stateful/activations.html">Activations</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Docs</span></p>
 <ul>
@@ -1505,12 +1505,14 @@
         <li><a href="data_classes/container/base.html#ivy.container.base.ContainerBase.einops_reduce">(ivy.container.base.ContainerBase method)</a>, <a href="data_classes/container/base/ContainerBase.html#ivy.container.base.ContainerBase.einops_reduce">[1]</a>
 </li>
       </ul></li>
-      <li><a href="functional/ivy/general.html#ivy.functional.ivy.general.einops_repeat">einops_repeat() (in module ivy.functional.ivy.general)</a>, <a href="functional/ivy/general/einops_repeat.html#ivy.functional.ivy.general.einops_repeat">[1]</a>
+      <li><a href="functional/ivy/general/einops_repeat.html#ivy.container.container_methods.einops_repeat">einops_repeat() (in module ivy.container.container_methods)</a>, <a href="functional/ivy/general/einops_repeat/einops_repeat_container.html#ivy.container.container_methods.einops_repeat">[1]</a>
 
       <ul>
+        <li><a href="functional/ivy/general.html#ivy.functional.ivy.general.einops_repeat">(in module ivy.functional.ivy.general)</a>, <a href="functional/ivy/general/einops_repeat.html#ivy.functional.ivy.general.einops_repeat">[1]</a>, <a href="functional/ivy/general/einops_repeat/einops_repeat_functional.html#ivy.functional.ivy.general.einops_repeat">[2]</a>
+</li>
         <li><a href="data_classes/array.html#ivy.array.array.Array.einops_repeat">(ivy.array.array.Array method)</a>, <a href="data_classes/array/array.html#ivy.array.array.Array.einops_repeat">[1]</a>, <a href="data_classes/array/array/Array.html#ivy.array.array.Array.einops_repeat">[2]</a>
 </li>
-        <li><a href="data_classes/container/base.html#ivy.container.base.ContainerBase.einops_repeat">(ivy.container.base.ContainerBase method)</a>, <a href="data_classes/container/base/ContainerBase.html#ivy.container.base.ContainerBase.einops_repeat">[1]</a>
+        <li><a href="data_classes/container/general.html#ivy.container.general.ContainerWithGeneral.einops_repeat">(ivy.container.general.ContainerWithGeneral method)</a>, <a href="data_classes/container/general/ContainerWithGeneral.html#ivy.container.general.ContainerWithGeneral.einops_repeat">[1]</a>
 </li>
       </ul></li>
       <li><a href="functional/ivy/statistical/einsum.html#ivy.array.array_methods.einsum">einsum() (in module ivy.array.array_methods)</a>, <a href="functional/ivy/statistical/einsum/einsum_array.html#ivy.array.array_methods.einsum">[1]</a>
@@ -4507,8 +4509,12 @@
 </li>
       <li><a href="data_classes/container.html#ivy.container.container.Container.static_einops_reduce">static_einops_reduce() (ivy.container.container.Container method)</a>, <a href="data_classes/container/container.html#ivy.container.container.Container.static_einops_reduce">[1]</a>, <a href="data_classes/container/container/Container.html#ivy.container.container.Container.static_einops_reduce">[2]</a>
 </li>
-      <li><a href="data_classes/container.html#ivy.container.container.Container.static_einops_repeat">static_einops_repeat() (ivy.container.container.Container method)</a>, <a href="data_classes/container/container.html#ivy.container.container.Container.static_einops_repeat">[1]</a>, <a href="data_classes/container/container/Container.html#ivy.container.container.Container.static_einops_repeat">[2]</a>
+      <li><a href="functional/ivy/general/einops_repeat.html#ivy.container.container_methods.static_einops_repeat">static_einops_repeat() (in module ivy.container.container_methods)</a>, <a href="functional/ivy/general/einops_repeat/static_einops_repeat_container.html#ivy.container.container_methods.static_einops_repeat">[1]</a>
+
+      <ul>
+        <li><a href="data_classes/container/general.html#ivy.container.general.ContainerWithGeneral.static_einops_repeat">(ivy.container.general.ContainerWithGeneral static method)</a>, <a href="data_classes/container/general/ContainerWithGeneral.html#ivy.container.general.ContainerWithGeneral.static_einops_repeat">[1]</a>
 </li>
+      </ul></li>
       <li><a href="data_classes/container.html#ivy.container.container.Container.static_einsum">static_einsum() (ivy.container.container.Container method)</a>, <a href="data_classes/container/container.html#ivy.container.container.Container.static_einsum">[1]</a>, <a href="data_classes/container/container/Container.html#ivy.container.container.Container.static_einsum">[2]</a>
 </li>
       <li><a href="data_classes/container.html#ivy.container.container.Container.static_empty">static_empty() (ivy.container.container.Container method)</a>, <a href="data_classes/container/container.html#ivy.container.container.Container.static_empty">[1]</a>, <a href="data_classes/container/container/Container.html#ivy.container.container.Container.static_empty">[2]</a>
