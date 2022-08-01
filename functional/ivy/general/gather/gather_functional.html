@@ -21,7 +21,7 @@
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="ivy.Container.gather" href="gather_container.html" />
+    <link rel="next" title="ivy.Array.gather" href="gather_array.html" />
     <link rel="prev" title="gather" href="../gather.html" /> 
 </head>
 
@@ -65,6 +65,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../is_ivy_array.html">is_ivy_array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../is_array.html">is_array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../is_ivy_container.html">is_ivy_container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../set_array_mode.html">set_array_mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unset_array_mode.html">unset_array_mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_array_mode.html">get_array_mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../set_nestable_mode.html">set_nestable_mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unset_nestable_mode.html">unset_nestable_mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_nestable_mode.html">get_nestable_mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../copy_array.html">copy_array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../array_equal.html">array_equal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../arrays_equal.html">arrays_equal</a></li>
@@ -118,6 +124,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../scatter_nd.html">scatter_nd</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../gather.html">gather</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">ivy.gather</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gather_array.html">ivy.Array.gather</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gather_container.html">ivy.Container.gather</a></li>
 <li class="toctree-l3"><a class="reference internal" href="static_gather_container.html">ivy.Container.static_gather</a></li>
 </ul>
@@ -132,6 +139,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../shape_array_mode.html">shape_array_mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../get_num_dims.html">get_num_dims</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../arg_info.html">arg_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../function_unsupported_devices_and_dtypes.html">function_unsupported_devices_and_dtypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../function_supported_devices_and_dtypes.html">function_supported_devices_and_dtypes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../gradients.html">Gradients</a></li>
@@ -306,14 +315,8 @@ axis.</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>                           <span class="n">b</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 <span class="go">{</span>
-<span class="go">    a: {</span>
-<span class="go">        a: ivy.array([0., 1.]),</span>
-<span class="go">        b: ivy.array([1., 2.])</span>
-<span class="go">    },</span>
-<span class="go">    b: {</span>
-<span class="go">        a: ivy.array([4., 5.]),</span>
-<span class="go">        b: ivy.array([5., 6.])</span>
-<span class="go">    }</span>
+<span class="go">    a: ivy.array([0., 1.]),</span>
+<span class="go">    b: ivy.array([5., 6.])</span>
 <span class="go">}</span>
 </pre></div>
 </div>
@@ -331,7 +334,7 @@ axis.</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../gather.html" class="btn btn-neutral float-left" title="gather" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="gather_container.html" class="btn btn-neutral float-right" title="ivy.Container.gather" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gather_array.html" class="btn btn-neutral float-right" title="ivy.Array.gather" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
