@@ -3,6 +3,8 @@ gather
 
 .. autofunction:: ivy.functional.ivy.general.gather
 
+.. autofunction:: ivy.array.array_methods.gather
+
 .. autofunction:: ivy.container.container_methods.static_gather
 
 .. autofunction:: ivy.container.container_methods.gather
@@ -33,6 +35,7 @@ gather
    :caption: gather
 
    gather/gather_functional.rst
+   gather/gather_array.rst
    gather/gather_container.rst
    gather/static_gather_container.rst
 

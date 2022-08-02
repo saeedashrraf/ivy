@@ -3,6 +3,8 @@ einops_repeat
 
 .. autofunction:: ivy.functional.ivy.general.einops_repeat
 
+.. autofunction:: ivy.array.array_methods.einops_repeat
+
 .. autofunction:: ivy.container.container_methods.einops_repeat
 
 .. autofunction:: ivy.container.container_methods.static_einops_repeat
@@ -33,6 +35,7 @@ einops_repeat
    :caption: einops_repeat
 
    einops_repeat/einops_repeat_functional.rst
+   einops_repeat/einops_repeat_array.rst
    einops_repeat/einops_repeat_container.rst
    einops_repeat/static_einops_repeat_container.rst
 
