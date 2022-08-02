@@ -276,14 +276,15 @@ These special methods include
 <a class="reference external" href="https://github.com/unifyai/ivy/blob/36e32ca1f17ef1e4c1b986599b45974156c19737/ivy/container/base.py#L4884">__setitem__</a> that enables the underlying <code class="code docutils literal notranslate"><span class="pre">dict</span></code> to be set via a chain of keys,
 <a class="reference external" href="https://github.com/unifyai/ivy/blob/36e32ca1f17ef1e4c1b986599b45974156c19737/ivy/container/base.py#L4904">__contains__</a> that enables us to check for chains of keys in the underlying <code class="code docutils literal notranslate"><span class="pre">dict</span></code>,
 and <a class="reference external" href="https://github.com/unifyai/ivy/blob/36e32ca1f17ef1e4c1b986599b45974156c19737/ivy/container/base.py#L4912">__getstate__</a> and <a class="reference external" href="https://github.com/unifyai/ivy/blob/36e32ca1f17ef1e4c1b986599b45974156c19737/ivy/container/base.py#L4927">__setstate__</a> which combined enable the container to be pickled and unpickled.</p>
-<p>As for the special methods which <strong>do</strong> make use of functions implemented in the functional API,
-these are <a class="reference external" href="https://github.com/unifyai/ivy/blob/36e32ca1f17ef1e4c1b986599b45974156c19737/ivy/container/container.py#L98">implemented</a> in the main <code class="code docutils literal notranslate"><span class="pre">ivy.Container</span></code> class.</p>
-<p>Most of these special methods make use of operator functions. As a result, if the input contains one or
-more <code class="code docutils literal notranslate"><span class="pre">ivy.Array</span></code> or <code class="code docutils literal notranslate"><span class="pre">ivy.NativeArray</span></code> objects, the corresponding functional API methods are used.</p>
+<p>As for the special methods which are <a class="reference external" href="https://github.com/unifyai/ivy/blob/36e32ca1f17ef1e4c1b986599b45974156c19737/ivy/container/container.py#L98">implemented</a> in the main <code class="code docutils literal notranslate"><span class="pre">ivy.Container</span></code> class, they all make
+calls to the standard operator functions.</p>
+<p>As a result, the operator functions will make use of the special methods of the passed input objects.
+For instance, if the input contains one or more <code class="code docutils literal notranslate"><span class="pre">ivy.Array</span></code> objects, the operator function will
+make calls to the special methods of those array objects. The special methods will in turn
+call the suitable functions from the ivy functional API.</p>
 <p>Examples include <a class="reference external" href="https://github.com/unifyai/ivy/blob/36e32ca1f17ef1e4c1b986599b45974156c19737/ivy/container/container.py#L115">__add__</a>, <a class="reference external" href="https://github.com/unifyai/ivy/blob/36e32ca1f17ef1e4c1b986599b45974156c19737/ivy/container/container.py#L121">__sub__</a>, <a class="reference external" href="https://github.com/unifyai/ivy/blob/36e32ca1f17ef1e4c1b986599b45974156c19737/ivy/container/container.py#L127">__mul__</a> and <a class="reference external" href="https://github.com/unifyai/ivy/blob/36e32ca1f17ef1e4c1b986599b45974156c19737/ivy/container/container.py#L133">__truediv__</a> which will make calls to
-<code class="code docutils literal notranslate"><span class="pre">ivy.add</span></code>, <code class="code docutils literal notranslate"><span class="pre">ivy.subtract</span></code>,
-<code class="code docutils literal notranslate"><span class="pre">ivy.multiply</span></code> and <code class="code docutils literal notranslate"><span class="pre">ivy.divide</span></code> respectively if the input
-contains any <code class="code docutils literal notranslate"><span class="pre">ivy.Array</span></code> or <code class="code docutils literal notranslate"><span class="pre">ivy.NativeArray</span></code> objects.</p>
+<code class="code docutils literal notranslate"><span class="pre">ivy.add</span></code>, <code class="code docutils literal notranslate"><span class="pre">ivy.subtract</span></code>, <code class="code docutils literal notranslate"><span class="pre">ivy.multiply</span></code> and <code class="code docutils literal notranslate"><span class="pre">ivy.divide</span></code>, respectively, if
+the input contains any <code class="code docutils literal notranslate"><span class="pre">ivy.Array</span></code> objects.</p>
 </section>
 <section id="nestable-functions">
 <h2>Nestable Functions<a class="headerlink" href="#nestable-functions" title="Permalink to this heading"></a></h2>
@@ -517,7 +518,7 @@ or reach out on <a class="reference external" href="https://discord.gg/ZVQdvbzNQ
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, Ivy Team.</p>
+    <p>&#169; Copyright 2020-2022, Ivy Team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
