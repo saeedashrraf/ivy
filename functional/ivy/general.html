@@ -107,8 +107,8 @@
 <li class="toctree-l2"><a class="reference internal" href="general/num_arrays_in_memory.html">num_arrays_in_memory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general/print_all_arrays_in_memory.html">print_all_arrays_in_memory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general/set_queue_timeout.html">set_queue_timeout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general/queue_timeout.html">queue_timeout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general/tmp_dir.html">tmp_dir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general/get_queue_timeout.html">get_queue_timeout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general/get_tmp_dir.html">get_tmp_dir</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general/set_tmp_dir.html">set_tmp_dir</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general/container_types.html">container_types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general/inplace_arrays_supported.html">inplace_arrays_supported</a></li>
@@ -1425,6 +1425,13 @@ Default is True.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="ivy.functional.ivy.general.get_queue_timeout">
+<span class="sig-prename descclassname">ivy.</span></span><span class="sig-name descname"><span class="pre">get_queue_timeout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/general.html#get_queue_timeout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.general.get_queue_timeout" title="Permalink to this definition"></a></dt>
+<dd><p>Get the global queue timeout values (in seconds).</p>
+<p>Default value without this function being called is 10 seconds.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="ivy.functional.ivy.general.get_referrers_recursive">
 <span class="sig-prename descclassname">ivy.</span></span><span class="sig-name descname"><span class="pre">get_referrers_recursive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seen_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/general.html#get_referrers_recursive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.general.get_referrers_recursive" title="Permalink to this definition"></a></dt>
 <dd><p>Summary.</p>
@@ -1437,6 +1444,17 @@ Default is True.</p>
 <li><p><strong>seen_set</strong> – (Default value = None)</p></li>
 <li><p><strong>local_set</strong> – (Default value = None`)</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ivy.functional.ivy.general.get_tmp_dir">
+<span class="sig-prename descclassname">ivy.</span></span><span class="sig-name descname"><span class="pre">get_tmp_dir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/general.html#get_tmp_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.general.get_tmp_dir" title="Permalink to this definition"></a></dt>
+<dd><p>Get the path for directory that saves temporary files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><em>ret</em> – The path of directory that saves temporary files.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1780,13 +1798,6 @@ overrides.</p>
 <dt class="sig sig-object py" id="ivy.functional.ivy.general.print_all_arrays_in_memory">
 <span class="sig-prename descclassname">ivy.</span></span><span class="sig-name descname"><span class="pre">print_all_arrays_in_memory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/general.html#print_all_arrays_in_memory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.general.print_all_arrays_in_memory" title="Permalink to this definition"></a></dt>
 <dd><p>Prints all arrays which are currently alive.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ivy.functional.ivy.general.queue_timeout">
-<span class="sig-prename descclassname">ivy.</span></span><span class="sig-name descname"><span class="pre">queue_timeout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/general.html#queue_timeout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.general.queue_timeout" title="Permalink to this definition"></a></dt>
-<dd><p>Get the global queue timeout values (in seconds).</p>
-<p>Default value without this function being called is 10 seconds.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -2146,17 +2157,6 @@ for numerical stability.</p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><em>ret</em> – Boolean, whether or not inplace operations are supported for x.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ivy.functional.ivy.general.tmp_dir">
-<span class="sig-prename descclassname">ivy.</span></span><span class="sig-name descname"><span class="pre">tmp_dir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy/functional/ivy/general.html#tmp_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.general.tmp_dir" title="Permalink to this definition"></a></dt>
-<dd><p>Get the path for directory that saves temporary files.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><em>ret</em> – The path of directory that saves temporary files.</p>
 </dd>
 </dl>
 </dd></dl>
