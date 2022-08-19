@@ -21,7 +21,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="trunc" href="trunc.html" />
+    <link rel="next" title="ivy.tanh" href="tanh/tanh_functional.html" />
     <link rel="prev" title="ivy.Container.tan" href="tan/tan_container.html" /> 
 </head>
 
@@ -49,6 +49,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../deep_dive.html">Deep Dive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Functions</span></p>
 <ul class="current">
@@ -113,7 +114,13 @@
 <li class="toctree-l2"><a class="reference internal" href="square.html">square</a></li>
 <li class="toctree-l2"><a class="reference internal" href="subtract.html">subtract</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tan.html">tan</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">tanh</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">tanh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tanh/tanh_functional.html">ivy.tanh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tanh/static_tanh_container.html">ivy.Container.static_tanh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tanh/tanh_array.html">ivy.Array.tanh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tanh/tanh_container.html">ivy.Container.tanh</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="trunc.html">trunc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="erf.html">erf</a></li>
 <li class="toctree-l2"><a class="reference internal" href="maximum.html">maximum</a></li>
@@ -194,7 +201,7 @@
 <h1>tanh<a class="headerlink" href="#tanh" title="Permalink to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="ivy.functional.ivy.elementwise.tanh">
-<span class="sig-prename descclassname">ivy.</span></span><span class="sig-name descname"><span class="pre">tanh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/ivy/functional/ivy/elementwise.html#tanh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.elementwise.tanh" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname">ivy.</span></span><span class="sig-name descname"><span class="pre">tanh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/ivy/functional/ivy/elementwise.html#tanh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.elementwise.tanh" title="Permalink to this definition"></a></dt>
 <dd><p>Calculates an implementation-dependent approximation to the hyperbolic tangent, having domain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">+1]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p><strong>Special cases</strong></p>
 <p>For floating-point operands,</p>
@@ -272,6 +279,8 @@ and also the examples below.</p>
 <div class="line"><strong>Supported Frameworks:</strong></div>
 </div>
 <p class=supported_frameworks><a class="reference external logo" href="https://jax.readthedocs.io"><img alt="jax_logo" src="../../../_images/jax_logo.png" /></a> <a class="reference external logo" href="https://www.tensorflow.org"><img alt="tf_logo" src="../../../_images/tensorflow_logo.png" /></a> <a class="reference external logo" href="https://pytorch.org"><img alt="pytorch_logo" src="../../../_images/pytorch_logo.png" /></a> <a class="reference external logo" href="https://mxnet.apache.org"><img alt="mxnet_logo" src="../../../_images/mxnet_logo.png" /></a> <a class="reference external logo" href="https://numpy.org"><img alt="numpy_logo" src="../../../_images/numpy_logo.png" /></a></p>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
 
@@ -279,7 +288,7 @@ and also the examples below.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="tan/tan_container.html" class="btn btn-neutral float-left" title="ivy.Container.tan" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="trunc.html" class="btn btn-neutral float-right" title="trunc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tanh/tanh_functional.html" class="btn btn-neutral float-right" title="ivy.tanh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
