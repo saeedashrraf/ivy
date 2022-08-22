@@ -2,6 +2,8 @@ inplace_update
 ==============
 
 .. autofunction:: ivy.functional.ivy.general.inplace_update
+
+.. autofunction:: ivy.array.array_methods.inplace_update
 |
 | **Supported Frameworks:**
 
@@ -21,3 +23,13 @@ inplace_update
 
 .. |numpy_logo| image:: ../../../logos/supported/numpy_logo.png
    :target: https://numpy.org
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: -1
+   :caption: inplace_update
+
+   inplace_update/inplace_update_functional.rst
+   inplace_update/inplace_update_array.rst
+
