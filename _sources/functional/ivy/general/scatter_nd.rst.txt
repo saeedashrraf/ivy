@@ -4,6 +4,10 @@ scatter_nd
 .. autofunction:: ivy.functional.ivy.general.scatter_nd
 
 .. autofunction:: ivy.array.array_methods.scatter_nd
+
+.. autofunction:: ivy.container.container_methods.scatter_nd
+
+.. autofunction:: ivy.container.container_methods.static_scatter_nd
 |
 | **Supported Frameworks:**
 
@@ -32,4 +36,6 @@ scatter_nd
 
    scatter_nd/scatter_nd_functional.rst
    scatter_nd/scatter_nd_array.rst
+   scatter_nd/scatter_nd_container.rst
+   scatter_nd/static_scatter_nd_container.rst
 
