@@ -228,8 +228,10 @@
 
 
 <div class="viewcode-block" id="array_function_wrapper"><a class="viewcode-back" href="../../func_wrapper/array_function_wrapper.html#ivy.func_wrapper.array_function_wrapper">[docs]</a><span class="k">def</span> <span class="nf">array_function_wrapper</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrap a function to extract the relevant argument types to be passed to</span>
-<span class="sd">    array_function method.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wrap a function to extract the relevant argument types to be passed to</span>
+<span class="sd">    array_function method.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">new_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
