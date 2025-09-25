@@ -22,3 +22,4 @@ pyspark
 autoflake # for backend generation
 snakeviz # for profiling
 torchvision
+keras>=3.11.3 # not directly required, pinned by Snyk to avoid a vulnerability
