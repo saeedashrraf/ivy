@@ -25,3 +25,4 @@ snakeviz # for profiling
 cryptography
 xgboost
 torchvision
+keras>=3.12.0 # not directly required, pinned by Snyk to avoid a vulnerability
