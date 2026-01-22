@@ -16,3 +16,4 @@ ml-dtypes==0.2.0 # mod_name=ml_dtypes
 cloudpickle
 gast
 tqdm
+wheel>=0.46.2 # not directly required, pinned by Snyk to avoid a vulnerability
